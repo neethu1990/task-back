@@ -11,12 +11,12 @@ const routes = require("./routes/TaskRoutes");
 
 app.use(express.urlencoded({extended:true}));
 app.use(cors({
-    origin:["http:localhost:3000", ""]
+    origin:["http:localhost:3000", "http://task-manager.onrender.com"]
 }));
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect('mongodb://127.0.0.1:27017/task-manager')
+mongoose.connect('mongodb+srv://neethu:neethu234@cluster0.ckjhnyd.mongodb.net/task-manager')
 const verifyUser = (req,res,next) => {
     const token = req.cookie.token;
     if(!token) {
